@@ -794,6 +794,18 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;b
 </button>
 
 <script>
+// Safety: if anything fails, make all content visible immediately
+window.addEventListener('DOMContentLoaded', function(){
+  setTimeout(function(){
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('visible'); });
+  }, 100);
+  // Also hide loader after 2s max regardless of load event
+  setTimeout(function(){
+    var l = document.getElementById('loader');
+    if(l){ l.style.opacity='0'; setTimeout(function(){ l.style.display='none'; }, 500); }
+  }, 2000);
+});
+
 (function(){
 'use strict';
 
@@ -887,7 +899,7 @@ if(!RRM){
 }
 
 // ── CANVAS RIPPLE ─────────────────────────────────────────────────────────
-if(!RRM){
+try { if(!RRM){
   var canvas = document.getElementById('ripple-canvas');
   var ctx = canvas.getContext('2d');
   var W, H, cols, rows, cur, prev;
@@ -960,7 +972,7 @@ if(!RRM){
     drop(e.clientX-r.left, e.clientY-r.top, 3, 130);
   });
   setInterval(function(){ drop(Math.random()*W, Math.random()*H, 5, 220); }, 1800);
-}
+}} catch(e){} // end canvas ripple
 
 // ── TEXT SCRAMBLE ─────────────────────────────────────────────────────────
 if(!RRM){
@@ -1030,15 +1042,23 @@ if(!RRM){
 }
 
 // ── SCROLL REVEAL ─────────────────────────────────────────────────────────
-var revObs = new IntersectionObserver(function(entries){
-  entries.forEach(function(entry){
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      revObs.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(function(el){ revObs.observe(el); });
+try {
+  var revObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        revObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el){ revObs.observe(el); });
+} catch(e) {
+  document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('visible'); });
+}
+// Safety net – force show everything after 2.5s no matter what
+setTimeout(function(){
+  document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('visible'); });
+}, 2500);
 
 // ── STAT COUNTERS ─────────────────────────────────────────────────────────
 function easeOut(t){ return 1-Math.pow(1-t,3); }
