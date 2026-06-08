@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg0: #001F33; /* Deep Navy from logo */
+  --color-bg1: #002B49; /* Medium Navy */
+  --color-bg2: #00385C; /* Lighter Navy for cards */
+  --color-gold: #76E2A3; /* Mint Green from logo text */
+  --color-gold-dark: #3EB489;
+  --color-gold-light: #A8F0C6;
+  --color-mint: #76E2A3;
+  --color-mint-light: #A8F0C6;
+  --color-cream: #F0F9FF;
+
+  --font-playfair: "Playfair Display", serif;
+  --font-inter: "Inter", sans-serif;
+  --font-cormorant: "Cormorant Garamond", serif;
+
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-wa-pulse: wa-pulse 2.5s ease infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @keyframes wa-pulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(118, 226, 163, 0.4); }
+    50% { box-shadow: 0 4px 40px rgba(118, 226, 163, 0.7); }
+  }
+}
+
+:root {
+  --background: #001F33;
+  --foreground: #F0F9FF;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter);
+  overflow-x: hidden;
+}
+
+@layer base {
+  * {
+    @apply m-0 p-0;
+  }
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .gold-text {
+    @apply bg-linear-to-br from-gold to-gold-light bg-clip-text text-transparent;
+  }
+  .mint-text {
+    @apply bg-linear-to-br from-mint to-mint-light bg-clip-text text-transparent;
+  }
+  .btn-gold {
+    @apply bg-linear-to-br from-gold to-gold-dark text-bg0 font-semibold rounded-md px-8 py-3.5 inline-block relative overflow-hidden transition-all duration-200 hover:translate-y-[-2px] hover:shadow-[0_8px_32px_rgba(212,175,55,0.4)];
+  }
+  .btn-outline {
+    @apply border border-white/20 text-cream rounded-md px-8 py-3.5 inline-block transition-all duration-200 hover:border-gold hover:translate-y-[-2px] hover:shadow-[0_4px_20px_rgba(212,175,55,0.15)];
+  }
+  .card {
+    @apply bg-linear-to-br from-bg2 to-bg1 border border-gold/10 rounded-2xl transition-all duration-300 hover:border-gold/30 hover:shadow-[0_0_40px_rgba(62,180,137,0.1)];
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #04100d;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 3px;
+}
