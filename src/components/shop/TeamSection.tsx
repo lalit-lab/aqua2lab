@@ -58,26 +58,28 @@ export default function TeamSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.15 }}
-                className="bg-slate-50 p-9 rounded-3xl border border-slate-100 hover:border-cyan-200 hover:shadow-xl hover:shadow-cyan-50/60 transition-all duration-400 group"
+                className="bg-slate-50 rounded-3xl border border-slate-100 overflow-hidden hover:border-cyan-200 hover:shadow-xl hover:shadow-cyan-50/60 transition-all duration-400 group"
               >
-                <div className="relative w-24 h-24 rounded-2xl mb-7 overflow-hidden shadow-lg ring-2 ring-white group-hover:scale-105 transition-transform duration-400">
+                <div className="relative w-full aspect-square overflow-hidden bg-slate-200">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-cover"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <p className="text-[0.6rem] tracking-[0.25em] uppercase text-slate-400 font-black mb-2">
-                  {member.role}
-                </p>
-                <h3 className="text-2xl font-black text-[#0D2B3E] mb-4">
-                  {member.name}
-                </h3>
-                <p className="text-slate-500 text-sm leading-relaxed font-light">
-                  {member.bio}
-                </p>
-                <div className="mt-7 w-10 h-[2px] bg-cyan-300 group-hover:w-full transition-all duration-700" />
+                <div className="p-8">
+                  <p className="text-[0.6rem] tracking-[0.25em] uppercase text-slate-400 font-black mb-2">
+                    {member.role}
+                  </p>
+                  <h3 className="text-2xl font-black text-[#0D2B3E] mb-4">
+                    {member.name}
+                  </h3>
+                  <p className="text-slate-500 text-sm leading-relaxed font-light">
+                    {member.bio}
+                  </p>
+                  <div className="mt-6 w-10 h-[2px] bg-cyan-300 group-hover:w-full transition-all duration-700" />
+                </div>
               </motion.div>
             ))}
           </div>

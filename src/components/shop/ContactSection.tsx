@@ -147,6 +147,20 @@ export default function ContactSection({
             </div>
           ))}
         </div>
+
+        {/* Google Map */}
+        <div className="mt-6 rounded-3xl overflow-hidden border border-slate-100 shadow-sm">
+          <iframe
+            title="Aqua2 Lab location — SS Omnia Mall, Sector 86, Gurugram"
+            src="https://maps.google.com/maps?q=Aqua2%20Lab%2C%20SS%20Omnia%20Mall%2C%20Sector%2086%2C%20Gurugram&z=15&output=embed"
+            width="100%"
+            height="380"
+            style={{ border: 0 }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+        </div>
       </div>
     </section>
   );
