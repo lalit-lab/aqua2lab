@@ -1,23 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { shopConfig } from "@/lib/shopData";
 
 const team = [
   {
     name: "Varun Shah",
     role: "Founder & Creative Director",
-    initials: "VS",
-    accent: "cyan",
+    image: "/images/team/varun.jpg",
     bio: "Visionary designer focused on competition-standard aquascaping and Japanese nature-aquarium aesthetics.",
   },
   {
     name: "Lalit Rajput",
     role: "Director & Head of Operations",
-    initials: "LR",
-    accent: "navy",
+    image: "/images/team/lalit.jpg",
     bio: "The backbone of every flawless installation and long-term client relationship at Aqua2 Lab.",
   },
 ];
@@ -62,15 +60,13 @@ export default function TeamSection() {
                 transition={{ duration: 0.6, delay: idx * 0.15 }}
                 className="bg-slate-50 p-9 rounded-3xl border border-slate-100 hover:border-cyan-200 hover:shadow-xl hover:shadow-cyan-50/60 transition-all duration-400 group"
               >
-                <div
-                  className={cn(
-                    "w-16 h-16 rounded-2xl mb-7 flex items-center justify-center text-white text-2xl font-black group-hover:scale-105 transition-transform duration-400 shadow-lg",
-                    member.accent === "cyan"
-                      ? "bg-gradient-to-br from-cyan-500 to-cyan-700"
-                      : "bg-gradient-to-br from-[#0D2B3E] to-[#13475f]"
-                  )}
-                >
-                  {member.initials}
+                <div className="relative w-24 h-24 rounded-2xl mb-7 overflow-hidden shadow-lg ring-2 ring-white group-hover:scale-105 transition-transform duration-400">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <p className="text-[0.6rem] tracking-[0.25em] uppercase text-slate-400 font-black mb-2">
                   {member.role}
