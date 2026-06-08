@@ -37,7 +37,7 @@ export const shopServices = [
       "30-day follow-up care",
     ],
     color: "emerald",
-    image: "https://images.unsplash.com/photo-1544551763-8a445585562e?w=600&q=80",
+    image: "/images/services/service-1.jpg",
   },
   {
     slug: "paludarium",
@@ -55,7 +55,7 @@ export const shopServices = [
       "Humidity & lighting systems",
     ],
     color: "cyan",
-    image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80",
+    image: "/images/services/service-2.jpg",
   },
   {
     slug: "terrarium",
@@ -73,7 +73,7 @@ export const shopServices = [
       "Perfect for gifting or décor",
     ],
     color: "green",
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80",
+    image: "/images/services/service-3.jpg",
   },
   {
     slug: "pond",
@@ -91,7 +91,7 @@ export const shopServices = [
       "Seasonal maintenance plans",
     ],
     color: "blue",
-    image: "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=600&q=80",
+    image: "/images/services/service-4.jpg",
   },
   {
     slug: "maintenance",
@@ -109,7 +109,7 @@ export const shopServices = [
       "Detailed visit report after each session",
     ],
     color: "sky",
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80",
+    image: "/images/services/service-5.jpg",
   },
   {
     slug: "consultation",
@@ -127,7 +127,7 @@ export const shopServices = [
       "No commitment required",
     ],
     color: "violet",
-    image: "https://images.unsplash.com/photo-1524147023058-0156245b36ec?w=600&q=80",
+    image: "/images/services/service-6.jpg",
   },
 ];
 
@@ -186,7 +186,7 @@ export const guides: GuideArticle[] = [
     excerpt:
       "Everything you need before setting up your first planted tank — substrate, lighting, CO₂, and the best plants to start with.",
     readTime: "7 min read",
-    image: "https://images.unsplash.com/photo-1498661694025-84f932ec14f1?w=800&q=80",
+    image: "/images/guides/guide-1.jpg",
     intro:
       "A planted aquarium is one of the most rewarding things you can keep in your home. Unlike a fish-only setup, a planted tank is a living ecosystem — plants, water, light, and nutrients in constant balance. Done right, it's almost self-sustaining. This guide walks you through everything you need to know to set up your first planted tank confidently.",
     sections: [
@@ -242,7 +242,7 @@ export const guides: GuideArticle[] = [
     excerpt:
       "Why CO₂ matters for plant growth, the difference between DIY and pressurised systems, and how to dial in the right levels safely.",
     readTime: "8 min read",
-    image: "https://images.unsplash.com/photo-1498661694025-84f932ec14f1?w=800&q=80",
+    image: "/images/guides/guide-2.jpg",
     intro:
       "Carbon dioxide is the single most important factor in a high-tech planted aquarium. Plants need three things to photosynthesise: light, CO₂, and nutrients. Most beginners manage light and nutrients but neglect CO₂ — and then wonder why their plants grow slowly or why algae keeps winning. This guide explains everything.",
     sections: [
@@ -289,7 +289,7 @@ export const guides: GuideArticle[] = [
     excerpt:
       "A plain-language breakdown of the three major aquascaping styles — what they look like, how hard they are, and who they suit.",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80",
+    image: "/images/guides/guide-3.jpg",
     intro:
       "Aquascaping has evolved into a genuine art form with distinct schools of design. The three most influential are the Nature Aquarium style (and its purest expression, Iwagumi), and the Dutch style. Knowing the difference helps you communicate what you want — and helps us design the right scape for your space.",
     sections: [
@@ -331,7 +331,7 @@ export const guides: GuideArticle[] = [
     excerpt:
       "Part aquarium, part terrarium — a paludarium combines aquatic and terrestrial zones into one living display. Here's everything you need to know.",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80",
+    image: "/images/guides/guide-4.jpg",
     intro:
       "A paludarium (from the Latin 'palus' — marsh) is a terrarium that contains both aquatic and terrestrial elements. At its most dramatic, it recreates a tropical riverbank or rainforest floor: water cascading over mossy rocks, aquatic plants below the waterline, and tropical plants, ferns, and bromeliads growing above. Nothing else creates the same sense of a living, breathing ecosystem.",
     sections: [
@@ -373,7 +373,7 @@ export const guides: GuideArticle[] = [
     excerpt:
       "Closed and open terrariums explained — plant selection, substrate layering, hardscape, and how to keep them thriving long-term.",
     readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
+    image: "/images/guides/guide-5.jpg",
     intro:
       "A terrarium is a glass-enclosed garden — a miniature ecosystem you can hold in your hands or display on a shelf. They're one of the most popular décor pieces we create, because they're beautiful, long-lasting, and practically maintenance-free once established correctly. Here's how they work and what makes a great one.",
     sections: [
