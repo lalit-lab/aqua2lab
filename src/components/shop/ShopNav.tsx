@@ -45,7 +45,7 @@ export default function ShopNav({
         )}
       >
         <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between gap-6">
-          <Link href="/shop" className="flex items-center gap-3 shrink-0">
+          <Link href="/" className="flex items-center gap-3 shrink-0">
             <div className="relative w-9 h-9">
               <Image
                 src="/logo.png"

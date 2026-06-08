@@ -17,6 +17,8 @@ export const shopNavLinks = [
   { label: "Services", href: "#services" },
   { label: "Process", href: "#process" },
   { label: "Guides", href: "#guides" },
+  { label: "Team", href: "#team" },
+  { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
 

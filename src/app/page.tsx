@@ -1,46 +1,50 @@
 "use client";
 
 import { useState } from "react";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import Hero from "@/components/sections/Hero";
-import Marquee from "@/components/sections/Marquee";
-import Expertise from "@/components/sections/Expertise";
-import Stats from "@/components/sections/Stats";
-import Packages from "@/components/sections/Packages";
-import Gallery from "@/components/sections/Gallery";
-import Testimonials from "@/components/sections/Testimonials";
-import Team from "@/components/sections/Team";
-import FAQ from "@/components/sections/FAQ";
-import QuizModal from "@/components/ui/QuizModal";
+import ShopNav from "@/components/shop/ShopNav";
+import ShopHero from "@/components/shop/ShopHero";
+import WhyUs from "@/components/shop/WhyUs";
+import PortfolioSection from "@/components/shop/PortfolioSection";
+import ServicesSection from "@/components/shop/ServicesSection";
+import ProcessSection from "@/components/shop/ProcessSection";
+import GuidesSection from "@/components/shop/GuidesSection";
+import TeamSection from "@/components/shop/TeamSection";
+import ShopTestimonials from "@/components/shop/ShopTestimonials";
+import FaqSection from "@/components/shop/FaqSection";
+import ContactSection from "@/components/shop/ContactSection";
+import ShopFooter from "@/components/shop/ShopFooter";
+import RegisterModal from "@/components/shop/RegisterModal";
+import WhatsAppFAB from "@/components/shop/WhatsAppFAB";
 
 export default function Home() {
-  const [isQuizOpen, setIsQuizOpen] = useState(false);
-  const [selectedPackage, setSelectedPackage] = useState<string | undefined>();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [preselectedService, setPreselectedService] = useState("");
 
-  const openQuiz = (pkg?: string) => {
-    setSelectedPackage(pkg);
-    setIsQuizOpen(true);
+  const openModal = (service = "") => {
+    setPreselectedService(service);
+    setModalOpen(true);
   };
 
   return (
-    <main className="min-h-screen">
-      <Navbar />
-      <Hero />
-      <Marquee />
-      <Expertise />
-      <Stats />
-      <Packages openQuiz={openQuiz} />
-      <Gallery />
-      <Testimonials />
-      <Team />
-      <FAQ />
-      <Footer />
-      
-      <QuizModal 
-        isOpen={isQuizOpen} 
-        onClose={() => setIsQuizOpen(false)} 
-        initialPackage={selectedPackage}
+    <main className="bg-white text-slate-900 overflow-x-hidden">
+      <ShopNav onOpenModal={() => openModal()} />
+      <ShopHero onOpenModal={() => openModal()} />
+      <WhyUs />
+      <PortfolioSection />
+      <ServicesSection onOpenModal={openModal} />
+      <ProcessSection onOpenModal={() => openModal()} />
+      <GuidesSection />
+      <TeamSection />
+      <ShopTestimonials />
+      <FaqSection />
+      <ContactSection onOpenModal={() => openModal()} />
+      <ShopFooter />
+
+      <WhatsAppFAB />
+      <RegisterModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        preselectedService={preselectedService}
       />
     </main>
   );

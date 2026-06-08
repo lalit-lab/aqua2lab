@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/layout/CustomCursor";
-import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
 import { siteConfig } from "@/lib/data";
 
 const inter = Inter({
@@ -125,7 +124,6 @@ export default function RootLayout({
       >
         <CustomCursor />
         {children}
-        <WhatsAppFloat />
       </body>
     </html>
   );
