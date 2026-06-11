@@ -20,6 +20,7 @@ function PortfolioCard({ item }: { item: (typeof portfolioItems)[0] }) {
           src={item.image}
           alt={item.title}
           fill
+          sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
           className="object-cover group-hover:scale-105 transition-transform duration-700"
           onError={() => setImgError(true)}
         />

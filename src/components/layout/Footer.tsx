@@ -11,10 +11,11 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="#home" className="flex items-center gap-4 mb-8">
               <div className="relative w-12 h-12">
-                <Image 
-                  src="/logo.png" 
-                  alt="Aqua2 Lab Logo" 
-                  fill 
+                <Image
+                  src="/logo.png"
+                  alt="Aqua2 Lab Logo"
+                  fill
+                  sizes="48px"
                   className="object-contain"
                 />
               </div>
@@ -48,10 +49,15 @@ export default function Footer() {
             <div>
               <h4 className="text-[0.65rem] font-black tracking-[0.4em] text-gold uppercase mb-8">Navigation</h4>
               <ul className="space-y-4">
-                {["EXPERTISE", "GALLERY", "PRICING", "TEAM"].map((item) => (
-                  <li key={item}>
-                    <Link href={`#${item.toLowerCase()}`} className="text-cream/40 text-sm font-medium hover:text-cream transition-colors flex items-center justify-between group">
-                      {item}
+                {[
+                  { name: "PORTFOLIO", href: "/#portfolio" },
+                  { name: "SERVICES", href: "/#services" },
+                  { name: "PRICE CALCULATOR", href: "/#calculator" },
+                  { name: "TEAM", href: "/#team" },
+                ].map((item) => (
+                  <li key={item.name}>
+                    <Link href={item.href} className="text-cream/40 text-sm font-medium hover:text-cream transition-colors flex items-center justify-between group">
+                      {item.name}
                       <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                     </Link>
                   </li>

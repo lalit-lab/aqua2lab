@@ -2,7 +2,15 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { MessageCircle, MapPin, ChevronDown } from "lucide-react";
+import {
+  MessageCircle,
+  MapPin,
+  ChevronDown,
+  Leaf,
+  Droplets,
+  PencilRuler,
+  Microscope,
+} from "lucide-react";
 import { shopConfig } from "@/lib/shopData";
 
 export default function ShopHero({ onOpenModal }: { onOpenModal: () => void }) {
@@ -13,10 +21,11 @@ export default function ShopHero({ onOpenModal }: { onOpenModal: () => void }) {
     >
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1498661694025-84f932ec14f1?w=1920&q=80&auto=format&fit=crop"
-          alt="Planted aquarium by Aqua2 Lab"
+          src="/images/hero/aquascape-hero.jpg"
+          alt="Lush planted aquarium with schooling fish"
           fill
-          className="object-cover opacity-30"
+          sizes="100vw"
+          className="object-cover opacity-40"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#071e2e] via-[#071e2e]/90 to-transparent" />
@@ -119,22 +128,22 @@ export default function ShopHero({ onOpenModal }: { onOpenModal: () => void }) {
         >
           {[
             {
-              icon: "🌿",
+              Icon: Leaf,
               title: "Custom Setup",
               subtitle: "Design → Install → Commission",
             },
             {
-              icon: "💧",
+              Icon: Droplets,
               title: "Regular Maintenance",
               subtitle: "Weekly · Fortnightly · Monthly",
             },
             {
-              icon: "🌊",
+              Icon: PencilRuler,
               title: "Design Consultation",
               subtitle: "Free evening session",
             },
             {
-              icon: "🔬",
+              Icon: Microscope,
               title: "Tank Health Check",
               subtitle: "Algae · Water chemistry · Plants",
             },
@@ -146,7 +155,9 @@ export default function ShopHero({ onOpenModal }: { onOpenModal: () => void }) {
               transition={{ delay: 0.5 + i * 0.1 }}
               className="flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl px-5 py-4 hover:bg-white/10 hover:border-cyan-500/30 transition-all duration-300 cursor-default"
             >
-              <span className="text-2xl shrink-0">{card.icon}</span>
+              <span className="w-10 h-10 rounded-xl bg-cyan-500/15 border border-cyan-500/25 flex items-center justify-center shrink-0">
+                <card.Icon size={18} className="text-cyan-400" />
+              </span>
               <div>
                 <div className="text-white font-bold text-sm">{card.title}</div>
                 <div className="text-slate-400 text-xs">{card.subtitle}</div>

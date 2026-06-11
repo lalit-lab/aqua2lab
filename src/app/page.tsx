@@ -6,6 +6,7 @@ import ShopHero from "@/components/shop/ShopHero";
 import WhyUs from "@/components/shop/WhyUs";
 import PortfolioSection from "@/components/shop/PortfolioSection";
 import ServicesSection from "@/components/shop/ServicesSection";
+import TankCalculator from "@/components/shop/TankCalculator";
 import ProcessSection from "@/components/shop/ProcessSection";
 import GuidesSection from "@/components/shop/GuidesSection";
 import TeamSection from "@/components/shop/TeamSection";
@@ -15,6 +16,7 @@ import ContactSection from "@/components/shop/ContactSection";
 import ShopFooter from "@/components/shop/ShopFooter";
 import RegisterModal from "@/components/shop/RegisterModal";
 import WhatsAppFAB from "@/components/shop/WhatsAppFAB";
+import MobileCtaBar from "@/components/shop/MobileCtaBar";
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -32,6 +34,7 @@ export default function Home() {
       <WhyUs />
       <PortfolioSection />
       <ServicesSection onOpenModal={openModal} />
+      <TankCalculator />
       <ProcessSection onOpenModal={() => openModal()} />
       <GuidesSection />
       <TeamSection />
@@ -41,6 +44,7 @@ export default function Home() {
       <ShopFooter />
 
       <WhatsAppFAB />
+      <MobileCtaBar onOpenModal={() => openModal()} />
       <RegisterModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}

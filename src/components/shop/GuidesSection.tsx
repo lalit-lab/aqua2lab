@@ -42,6 +42,7 @@ export default function GuidesSection() {
             src={guides[0].image}
             alt={guides[0].title}
             fill
+            sizes="100vw"
             className="object-cover group-hover:scale-105 transition-transform duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0D2B3E]/90 via-[#0D2B3E]/50 to-transparent" />
@@ -79,6 +80,7 @@ export default function GuidesSection() {
                   src={g.image}
                   alt={g.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />

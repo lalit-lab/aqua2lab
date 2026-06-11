@@ -38,22 +38,21 @@ export default async function GuidePage({
     <main className="bg-white min-h-screen">
       {/* Top bar */}
       <div className="bg-[#0D2B3E] text-white py-3 px-6 text-xs text-center">
-        🇺🇸 <strong>New Store Opening in Alabama, USA</strong> — Stay Tuned! &nbsp;
-        <a
-          href={`https://wa.me/${shopConfig.whatsapp}?text=Notify+me+about+your+Alabama+store!`}
-          target="_blank"
-          rel="noopener noreferrer"
+        <strong>New:</strong> Design your own planted aquarium &amp; get an
+        instant price estimate. &nbsp;
+        <Link
+          href="/#calculator"
           className="underline text-cyan-300 hover:text-white"
         >
-          Get Notified
-        </a>
+          Try the Calculator
+        </Link>
       </div>
 
       {/* Nav */}
       <nav className="sticky top-0 z-50 bg-white border-b border-slate-100 shadow-sm">
         <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link
-            href="/shop"
+            href="/"
             className="flex items-center gap-2 text-slate-500 hover:text-[#0D2B3E] text-sm font-semibold transition-colors"
           >
             <ArrowLeft size={16} />
@@ -77,6 +76,7 @@ export default async function GuidePage({
           src={guide.image}
           alt={guide.title}
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
@@ -171,7 +171,7 @@ export default async function GuidePage({
               Discuss on WhatsApp
             </a>
             <Link
-              href="/shop"
+              href="/#services"
               className="flex items-center gap-2 border border-white/20 text-white font-bold px-6 py-3.5 rounded-full text-sm hover:bg-white/10 transition-all"
             >
               View Our Services
@@ -197,6 +197,7 @@ export default async function GuidePage({
                       src={g.image}
                       alt={g.title}
                       fill
+                      sizes="(max-width: 640px) 100vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>

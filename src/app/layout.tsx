@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
-import CustomCursor from "@/components/layout/CustomCursor";
 import { siteConfig } from "@/lib/data";
 
 const inter = Inter({
@@ -32,7 +31,7 @@ export const metadata: Metadata = {
     siteName: 'Aqua2 Lab',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1544551763-8a445585562e?w=1200&h=630&fit=crop&auto=format',
+        url: '/images/portfolio/project-9.jpg',
         width: 1200,
         height: 630,
         alt: 'Aqua2 Lab – Premium Planted Aquascaping Studio, Gurugram',
@@ -45,7 +44,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ['https://images.unsplash.com/photo-1544551763-8a445585562e?w=1200&h=630&fit=crop&auto=format'],
+    images: ['/images/portfolio/project-9.jpg'],
   },
   alternates: {
     canonical: 'https://aqua2lab.com',
@@ -97,9 +96,8 @@ export default function RootLayout({
     "sameAs": [
       `https://wa.me/${siteConfig.whatsappNumber}`
     ],
-    "image": "https://images.unsplash.com/photo-1544551763-8a445585562e?w=1200&h=630&fit=crop&auto=format",
+    "image": "https://aqua2lab.com/images/portfolio/project-9.jpg",
     "priceRange": "₹₹₹",
-    "servesCuisine": null,
     "@graph": [
       {
         "@type": "Service",
@@ -122,7 +120,6 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} ${cormorant.variable} antialiased`}
       >
-        <CustomCursor />
         {children}
       </body>
     </html>

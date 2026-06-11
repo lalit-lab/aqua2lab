@@ -1,7 +1,25 @@
 import Image from "next/image";
-import { Check } from "lucide-react";
+import {
+  Check,
+  Leaf,
+  Trees,
+  Sprout,
+  Waves,
+  Droplets,
+  PencilRuler,
+  type LucideIcon,
+} from "lucide-react";
 import { shopServices } from "@/lib/shopData";
 import { cn } from "@/lib/utils";
+
+const serviceIcons: Record<string, LucideIcon> = {
+  "planted-aquarium": Leaf,
+  paludarium: Trees,
+  terrarium: Sprout,
+  pond: Waves,
+  maintenance: Droplets,
+  consultation: PencilRuler,
+};
 
 const checkColor: Record<string, string> = {
   emerald: "text-emerald-600 bg-emerald-50 border-emerald-200",
@@ -54,11 +72,19 @@ export default function ServicesSection({
                   src={s.image}
                   alt={s.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                 <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                  <span className="text-xl">{s.icon}</span>
+                  {(() => {
+                    const Icon = serviceIcons[s.slug] ?? Leaf;
+                    return (
+                      <span className="w-8 h-8 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 flex items-center justify-center">
+                        <Icon size={15} className="text-white" />
+                      </span>
+                    );
+                  })()}
                   <span
                     className={cn(
                       "text-[0.6rem] font-black tracking-widest uppercase text-white px-2.5 py-1 rounded-full",

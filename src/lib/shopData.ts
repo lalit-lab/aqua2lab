@@ -15,6 +15,7 @@ export const shopConfig = {
 export const shopNavLinks = [
   { label: "Portfolio", href: "#portfolio" },
   { label: "Services", href: "#services" },
+  { label: "Price Calculator", href: "#calculator" },
   { label: "Process", href: "#process" },
   { label: "Guides", href: "#guides" },
   { label: "Team", href: "#team" },
@@ -28,7 +29,7 @@ export const shopServices = [
     icon: "🌿",
     title: "Planted Aquarium",
     subtitle: "Custom planted scapes",
-    startingPrice: "From ₹8,000",
+    startingPrice: "From ₹12,000",
     description:
       "Fully customised planted aquariums — from a 30cm nano on your desk to a 6ft statement piece in your living room or office lobby. Every detail designed around your space.",
     features: [
@@ -82,7 +83,7 @@ export const shopServices = [
     icon: "🏞️",
     title: "Pond & Water Garden",
     subtitle: "Outdoor water features",
-    startingPrice: "From ₹20,000",
+    startingPrice: "From ₹35,000",
     description:
       "Outdoor koi ponds, fountain gardens, and lotus ponds — designed to complement your garden, balcony, or outdoor space with natural, self-sustaining water features.",
     features: [
@@ -102,8 +103,9 @@ export const shopServices = [
     subtitle: "Scheduled care visits",
     startingPrice: "From ₹1,500 / visit",
     description:
-      "Your aquascape on autopilot. Our team visits on a schedule you choose — weekly, fortnightly, or monthly — and keeps every system running at its best.",
+      "Your aquascape on autopilot. Our team visits on a schedule you choose — weekly, fortnightly, or monthly — and keeps every system running at its best. Save more with an Annual Maintenance Contract (AMC).",
     features: [
+      "AMC ₹30,000/year — one visit every 14 days (26 visits) + priority support",
       "Water chemistry testing & dosing",
       "Plant trimming & reshaping",
       "Filter cleaning & equipment check",
@@ -476,13 +478,6 @@ export const portfolioItems: PortfolioItem[] = [
     description: "Rock-centred Iwagumi scape with lush green growth. Installed in a family living room.",
   },
   {
-    id: 7,
-    title: "5ft Statement Tank — Wall Unit",
-    category: "Planted Aquarium",
-    image: "/images/portfolio/project-7.jpg",
-    description: "Large planted aquarium built into a wood wall unit — a true focal point for the room.",
-  },
-  {
     id: 8,
     title: "6ft Community Planted — Lounge",
     category: "Planted Aquarium",
@@ -553,6 +548,13 @@ export const portfolioItems: PortfolioItem[] = [
     description: "Java fern & moss planted tank running a full external canister and CO₂ setup. Home install.",
   },
   {
+    id: 19,
+    title: "Colour Community — Concept Scape",
+    category: "Planted Aquarium",
+    image: "/images/portfolio/project-19.jpg",
+    description: "Style inspiration — a colourful community school over moss-covered driftwood. We can build this look for your space.",
+  },
+  {
     id: 18,
     title: "Showpiece Moss Tank — Café",
     category: "Planted Aquarium",
@@ -611,12 +613,150 @@ export const shopStats = [
   { value: "1hr", label: "WhatsApp Response" },
 ];
 
+// ─── Tank Price Calculator ────────────────────────────────────────────────────
+// All rates are editable estimates. Final quotes are always confirmed on WhatsApp.
+
+export interface TankSize {
+  id: string;
+  label: string;
+  lengthIn: number; // inches
+  widthIn: number;
+  heightIn: number;
+  normalPrice: number; // standard float glass, braced & polished
+  ultraClearPrice: number; // low-iron crystal glass — 20% below ADA India retail
+}
+
+// Ultra-clear = locally built low-iron (optiwhite) rimless tanks — roughly
+// 2–2.5× normal glass and far below imported ADA retail. Edit freely.
+export const tankSizes: TankSize[] = [
+  { id: "2ft", label: "2 ft Nano", lengthIn: 24, widthIn: 12, heightIn: 15, normalPrice: 3000, ultraClearPrice: 7500 },
+  { id: "3ft", label: "3 ft Standard", lengthIn: 36, widthIn: 14, heightIn: 18, normalPrice: 6500, ultraClearPrice: 15000 },
+  { id: "4ft", label: "4 ft Showpiece", lengthIn: 48, widthIn: 18, heightIn: 20, normalPrice: 12000, ultraClearPrice: 28000 },
+  { id: "5ft", label: "5 ft Statement", lengthIn: 60, widthIn: 20, heightIn: 22, normalPrice: 19000, ultraClearPrice: 45000 },
+  { id: "6ft", label: "6 ft Grand", lengthIn: 72, widthIn: 24, heightIn: 24, normalPrice: 28000, ultraClearPrice: 68000 },
+];
+
+export const glassOptions = [
+  {
+    id: "normal",
+    label: "Normal Glass",
+    note: "Standard float glass — slight green tint on edges",
+  },
+  {
+    id: "ultraclear",
+    label: "Ultra-Clear Glass",
+    note: "Low-iron crystal glass — true colours, premium ADA-style look",
+  },
+];
+
+export const cabinetOptions = [
+  {
+    id: "none",
+    label: "No Cabinet",
+    note: "You already have furniture / counter for the tank",
+    pricePerFt: 0,
+  },
+  {
+    id: "stand",
+    label: "Metal Stand",
+    note: "Powder-coated steel stand, sturdy & simple",
+    pricePerFt: 1800,
+  },
+  {
+    id: "cabinet",
+    label: "Wooden Cabinet",
+    note: "Laminate-finish cabinet with doors for filter & CO₂",
+    pricePerFt: 5500,
+  },
+];
+
+// Annual Maintenance Contract — one visit every 14 days
+export const amcPlan = {
+  pricePerYear: 30000,
+  visitEveryDays: 14,
+  visitsPerYear: 26,
+};
+
+// Equipment tier only — light, filter, CO₂. Hardscape & plants priced separately below.
+export const setupStyles = [
+  {
+    id: "basic",
+    label: "Basic Planted",
+    note: "Low-tech: no CO₂, simple light & filter",
+    pricePerLitre: 60,
+    image: "/images/calculator/style-basic.jpg",
+  },
+  {
+    id: "nature",
+    label: "Nature / Iwagumi",
+    note: "CO₂ injection, quality LED & filtration",
+    pricePerLitre: 110,
+    image: "/images/calculator/style-nature.jpg",
+  },
+  {
+    id: "hightech",
+    label: "Dutch / Jungle High-Tech",
+    note: "Full CO₂, high light, premium filtration",
+    pricePerLitre: 160,
+    image: "/images/calculator/style-hightech.jpg",
+  },
+];
+
+export const hardscapeOptions = [
+  {
+    id: "none",
+    label: "No Hardscape",
+    note: "Just soil & plants — clean minimal look",
+    pricePerLitre: 0,
+  },
+  {
+    id: "wood",
+    label: "Driftwood",
+    note: "Natural driftwood branches as the centrepiece",
+    pricePerLitre: 30,
+  },
+  {
+    id: "rock",
+    label: "Stone / Iwagumi",
+    note: "Seiryu-style rock arrangement",
+    pricePerLitre: 35,
+  },
+  {
+    id: "mix",
+    label: "Wood + Rock Mix",
+    note: "Layered scape with both wood & stone",
+    pricePerLitre: 50,
+  },
+];
+
+export const plantingLevels = [
+  {
+    id: "light",
+    label: "Light Planting",
+    note: "A few easy plants — lowest maintenance",
+    pricePerLitre: 50,
+  },
+  {
+    id: "medium",
+    label: "Medium Planting",
+    note: "Aquasoil + mixed plants, balanced look",
+    pricePerLitre: 80,
+  },
+  {
+    id: "dense",
+    label: "Dense / Carpet",
+    note: "Full aquasoil, carpet + stem plants, lush jungle",
+    pricePerLitre: 120,
+  },
+];
+
 export const serviceOptions = [
   "Planted Aquarium Setup",
   "Paludarium",
   "Terrarium",
   "Pond & Water Garden",
   "Regular Maintenance",
+  "AMC (Annual Maintenance Contract)",
   "Design Consultation",
   "Tank Health Check",
   "General Enquiry",

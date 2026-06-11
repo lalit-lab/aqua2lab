@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { shopStats } from "@/lib/shopData";
 
 const usps = [
@@ -57,6 +58,15 @@ export default function WhyUs() {
           </div>
 
           <div className="grid grid-cols-2 gap-5">
+            <div className="relative row-span-2 rounded-2xl overflow-hidden bg-slate-100 min-h-[280px]">
+              <Image
+                src="/images/hero/aquascape-discus.jpg"
+                alt="Red discus in a lush planted aquarium"
+                fill
+                sizes="(max-width: 1024px) 50vw, 25vw"
+                className="object-cover hover:scale-105 transition-transform duration-700"
+              />
+            </div>
             {shopStats.map((s) => (
               <div
                 key={s.label}

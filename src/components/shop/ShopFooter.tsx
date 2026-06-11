@@ -19,7 +19,7 @@ const socialLinks = [
 
 export default function ShopFooter() {
   return (
-    <footer className="bg-[#0D2B3E] text-white pt-16 pb-8">
+    <footer className="bg-[#0D2B3E] text-white pt-16 pb-24 md:pb-8">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div>
@@ -29,6 +29,7 @@ export default function ShopFooter() {
                   src="/logo.png"
                   alt="Aqua2 Lab"
                   fill
+                  sizes="36px"
                   className="object-contain"
                 />
               </div>

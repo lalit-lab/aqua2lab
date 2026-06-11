@@ -73,9 +73,9 @@ body {
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #04100d;
+  background: #0D2B3E;
 }
 ::-webkit-scrollbar-thumb {
-  background: #D4AF37;
+  background: #22d3ee;
   border-radius: 3px;
 }

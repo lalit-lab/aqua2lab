@@ -9,12 +9,11 @@ import { siteConfig } from "@/lib/data";
 import Image from "next/image";
 
 const navLinks = [
-  { name: "EXPERTISE", href: "#expertise" },
-  { name: "GALLERY", href: "#gallery" },
-  { name: "PRICING", href: "#packages" },
-  { name: "SHOP", href: "/shop" },
+  { name: "PORTFOLIO", href: "/#portfolio" },
+  { name: "SERVICES", href: "/#services" },
+  { name: "PRICE CALCULATOR", href: "/#calculator" },
   { name: "BOOKING", href: "/booking" },
-  { name: "FAQ", href: "#faq" },
+  { name: "FAQ", href: "/#faq" },
 ];
 
 export default function Navbar() {
@@ -48,10 +47,11 @@ export default function Navbar() {
             className="flex items-center gap-3"
           >
             <div className="relative w-10 h-10 md:w-12 md:h-12">
-              <Image 
-                src="/logo.png" 
-                alt="Aqua2 Lab Logo" 
-                fill 
+              <Image
+                src="/logo.png"
+                alt="Aqua2 Lab Logo"
+                fill
+                sizes="48px"
                 className="object-contain"
               />
             </div>

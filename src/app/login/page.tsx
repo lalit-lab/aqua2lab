@@ -24,10 +24,11 @@ export default function LoginPage() {
             className="text-center mb-10"
           >
             <div className="relative w-16 h-16 mx-auto mb-6">
-              <Image 
-                src="/logo.png" 
-                alt="Logo" 
-                fill 
+              <Image
+                src="/logo.png"
+                alt="Logo"
+                fill
+                sizes="64px"
                 className="object-contain"
               />
             </div>

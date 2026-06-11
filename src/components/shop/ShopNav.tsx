@@ -25,16 +25,13 @@ export default function ShopNav({
     <>
       {/* Announcement bar */}
       <div className="bg-[#0D2B3E] text-white text-center py-2 px-4 text-xs font-medium">
-        🇺🇸{" "}
-        <span className="font-bold">New Store Opening in Alabama, USA</span> —
-        Stay Tuned!{" "}
+        <span className="font-bold">New:</span> Design your own planted
+        aquarium &amp; get an instant price estimate.{" "}
         <a
-          href={`https://wa.me/${shopConfig.whatsapp}?text=Please+notify+me+when+your+Alabama+store+opens!`}
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#calculator"
           className="underline text-cyan-300 hover:text-white transition-colors ml-1"
         >
-          Get Notified
+          Try the Calculator
         </a>
       </div>
 
@@ -51,6 +48,7 @@ export default function ShopNav({
                 src="/logo.png"
                 alt="Aqua2 Lab"
                 fill
+                sizes="36px"
                 className="object-contain"
               />
             </div>
